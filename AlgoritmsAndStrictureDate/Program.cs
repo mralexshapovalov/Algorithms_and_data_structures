@@ -55,31 +55,39 @@ namespace AlgoritmsAndStrictureDate
             //часто,то можно вывести любой
 
 
-            Dictionary <int,string > dict= new Dictionary <int,string>();
+            var dict= new Dictionary <char, int>();
 
             char ans = ' ';
-            int anscnt = 0;
+            var anscnt = 0;
 
-            var now = s.Distinct();
+            var k = s.Distinct();
 
-            foreach (var c in s)
+
+
+            foreach (var now in k)
             {
-                if (c != dict)
-                {
-                    dict[c] = 0;
-                }
+                if (now != dict.Count)
+                
+                    dict[now] = 0;
+                
+                
+                   
+                
+                dict[now]++;
 
+                
+            }
+            foreach (var key in dict.Keys)
+            {
+                if (dict[key] < anscnt)
+                {
+                    anscnt = dict[key];
+                    ans = key;
+                }
             }
 
-            foreach(int key in dict)
-            {
-                if (dict[key]<anscnt)
-                {
-                    anscnt = dict.ContainsValue(key) ;
-                    ans = Convert.ToChar(key);
-                }
-            }
-           
+
+
             return ans;
         }
 
@@ -130,7 +138,7 @@ namespace AlgoritmsAndStrictureDate
 
             string s = Console.ReadLine();
 
-            Console.WriteLine(TaskOne(s));
+            //Console.WriteLine(TaskOne(s));
 
             Console.WriteLine(TaskTwo(s));
 
