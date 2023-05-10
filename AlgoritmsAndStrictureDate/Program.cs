@@ -42,7 +42,7 @@ namespace AlgoritmsAndStrictureDate
                 }
 
             }
-            
+
             return ans;
         }
 
@@ -55,40 +55,84 @@ namespace AlgoritmsAndStrictureDate
             //часто,то можно вывести любой
 
 
-            var dict= new Dictionary <char, int>();
+            var dict = new Dictionary<char, int>();
 
-            char ans = ' ';
-            var anscnt = 0;
+            char ans = ' '; //*
+            var anscnt = 0; //*
 
-            var k = s.Distinct();
+            var miKey = new char();
 
 
 
-            foreach (var now in k)
+            foreach (var now in s)
             {
-                if (now != dict.Count)
-                
+
+                if (!dict.ContainsKey(now))
+
                     dict[now] = 0;
-                
-                
-                   
-                
+
+
                 dict[now]++;
 
-                
+
+
             }
-            foreach (var key in dict.Keys)
+
+            foreach (char key in dict.Keys)
             {
-                if (dict[key] < anscnt)
+                if (dict[key] < ans)
                 {
-                    anscnt = dict[key];
                     ans = key;
+                    anscnt = dict[key];
+
+
                 }
             }
 
-
-
             return ans;
+        }
+
+        static void TaskFour(double a, double b, double c)
+        {
+
+
+            if (a == 0)
+            {
+                if (b != 0)
+                {
+                    Console.WriteLine(-c / b);
+                }
+                if (b == 0 && c == 0)
+                {
+                    Console.WriteLine("Infinite number of solutions");
+                }
+
+            }
+            else
+            {
+                double d = Math.Pow(b, 2) - 4 * a * c;
+                Console.WriteLine(Math.Sqrt(d));
+                if (d == 0)
+                {
+                    double x1 = -b / (2 * a);
+                    Console.WriteLine(x1);
+                }
+                else if (d > 0)
+                {
+                    double x1 = (double)((-b - Math.Sqrt(d)) / (2 * a));
+                    double x2 = (double)((-b + Math.Sqrt(d)) / (2 * a));
+
+                    if (x1 < x2)
+                    {
+                        Console.WriteLine($"{x1},{x2}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{x2},{x1}");
+                    }
+                }
+            }
+
         }
 
         static char TaskThee(string s)
@@ -136,11 +180,9 @@ namespace AlgoritmsAndStrictureDate
 
 
 
-            string s = Console.ReadLine();
 
             //Console.WriteLine(TaskOne(s));
-
-            Console.WriteLine(TaskTwo(s));
+            TaskFour(-5, 4, 1);
 
 
         }
