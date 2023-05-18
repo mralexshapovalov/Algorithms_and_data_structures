@@ -131,8 +131,6 @@ namespace Yandex_Lecture_2
             return ans;
         }
 
-
-
         static string Shorts(string[] words)
         { 
            //Дана последовательность слов
