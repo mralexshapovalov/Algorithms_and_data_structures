@@ -78,7 +78,7 @@ namespace Yandex_Lecture_2
 
       
 
-        static void FindMaxTwo(int[] arr)
+        static (int,int) FindMaxTwo(int[] arr)
         {
             //Дана последовательность чисел длинной N(N>1)
             //Найти максимальное число в последовательности и второе по величине число
@@ -105,8 +105,93 @@ namespace Yandex_Lecture_2
             }
 
 
-            Console.WriteLine(max + " " + max2);
+            return (max, max2);
         }
+
+
+        static int FindMineven(int[]arr)
+        {
+
+            //Дана последовательность чисел длиной N
+            //Найти минимальное четное число в последовательности или вывести -1,если такого не существует
+
+            //В переменную для ответа положим -1.Если очередное число четное,а ответ равен -1 или ответ больше текущего числа
+            //то запишем в ответ текущее число.
+
+            int ans = -1;
+
+            for(int i=0;i<arr.Length;i++)
+            {
+                if (arr[i]%2==0 && (ans==-1 || arr[i]<ans))
+                {
+                    ans = arr[i];
+                }
+            }
+
+            return ans;
+        }
+
+
+
+        static string Shorts(string[] words)
+        { 
+           //Дана последовательность слов
+          //Вывести все самые короткие слова через пробел
+
+
+            //int minLen = words.Length;
+
+            //foreach(string word in words)
+            //{
+            //    if(word.Length <minLen)
+            //    {
+            //        minLen=word.Length;
+            //    }
+            //}
+            //string ans = " ";
+
+            //foreach (string word in words)
+            //{
+            //    if (word.Length == minLen)
+            //    {
+            //        ans += word+" ";
+            //    }
+            //}
+
+            int minLen = words.Length;
+
+            foreach (string word in words)
+            {
+                if (word.Length < minLen)
+                {
+                    minLen = word.Length;
+                }
+            }
+            string[] ans = { };
+
+            foreach (string word in words)
+            {
+                if (word.Length == minLen)
+                {
+                   ans.Append(word);
+                }
+            }
+
+            var a= string.Join(" ", ans);
+
+            return a;
+        }
+
+
+       //Игра PitCraft  происходит в двухмерном мире,который состоит из блоков размеров 1 на 1 метр
+       //Остров игрока Представляет собой набор столбцов различной высоты,состоящих из блоков камня и окруженный морем
+       //Над островос прошел сильный дождь,который заполнил водой все низыины,а не помесившаяся в в них вода стекла в море,не увеличив на его уровень
+
+       //По ладшафту острова определите,сколько блоков воды осталоь после дождя в низинах на острове.
+
+
+
+
 
         static void Main(string[] args)
         {
@@ -116,6 +201,11 @@ namespace Yandex_Lecture_2
             Console.WriteLine(FindXLeft(arr, x));
             Console.WriteLine(FindXRight(arr, x));
             Console.WriteLine(FindMax(arr));
+
+
+            string[] words = { "a", "aa", "bb", "b", "c", "cc" };
+
+            Console.WriteLine(Shorts(words));
         }
     }
 }
