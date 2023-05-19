@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Yandex_Lecture_2
 {
-    internal class Program //Линейный поиск
-    {
-
+     class Program //Линейный поиск
+     {
         static int FindXLeft(int[] arr, int x)
         {
             // Дана последовательность чисел длинной N
@@ -117,13 +116,13 @@ namespace Yandex_Lecture_2
             //то запишем в ответ текущее число.
 
             int ans = -1;
-            bool IsFlag=false;
+            bool IsFlag = false;
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] % 2 == 0 && (!IsFlag || arr[i] < ans))
                 {
                     ans = arr[i];
-                    IsFlag=true;
+                    IsFlag = true;
                 }
             }
 
@@ -174,16 +173,12 @@ namespace Yandex_Lecture_2
             {
                 if (word.Length == minLen)
                 {
-
-                    ans.Append(word);
+                    ans.Add(word);
                 }
             }
 
-            string joint = string.Join(" ", ans);
 
-
-
-            return joint;
+            return string.Join(" ", ans);
         }
 
         static int IsLeFlood(int[] h)
@@ -236,83 +231,82 @@ namespace Yandex_Lecture_2
             return ans;
         }
 
-        //Дана строка(возможно, пустая), состоящая из букв A-Z:
-        //AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBB
-        //BBBBBBBB
-        //Нужно написать функцию RLE, которая на выходе даст строку вида:
-        //A4B3C2XYZD4E3F3A6B28.И сгенерирует ошибку, если на вход
-        //пришла невалидная строка.
-        //Пояснения: Если символ встречается 1 раз, он остается без
-        //изменений; Если символ повторяется более 1 раза, к нему
-        //добавляется количество повторений.
-
-        //Игра PitCraft  происходит в двухмерном мире,который состоит из блоков размеров 1 на 1 метр
-        //Остров игрока Представляет собой набор столбцов различной высоты,состоящих из блоков камня и окруженный морем
-        //Над островос прошел сильный дождь,который заполнил водой все низыины,а не помесившаяся в в них вода стекла в море,не увеличив на его уровень
-
-        //По ладшафту острова определите,сколько блоков воды осталоь после дождя в низинах на острове.
-
-
-
-
-        // Дана строка(возможно, пустая), состоящая из букв A-Z:
-        //AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBB
-        //B
-        //BBBBBBB
-        //Нужно написать функцию, которая на выходе даст строку вида:
-        //ABCXYZDEFAB.
-
-        static string EasyPeasy(string[] s)
+        static string EasyPeasy(string s)
         {
-            string lastSym = s[0];
 
-            string[] ans = { };
+            // Дана строка(возможно, пустая), состоящая из букв A-Z:
+            //AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBB
+            //B
+            //BBBBBBB
+            //Нужно написать функцию, которая на выходе даст строку вида:
+            //ABCXYZDEFAB.
+
+
+            char lastSym = s[0];
+
+            List<string> ans = new List<string>();
 
             for (int i = 0; i < s.Length; i++)
             {
                 if (s[i] != lastSym)
                 {
-                    ans.Append(lastSym);
+                    ans.Add(Convert.ToString(lastSym));
                     lastSym = s[i];
                 }
             }
-            ans.Append(lastSym);
+            ans.Add(Convert.ToString(lastSym));
+
 
             return string.Join(" ", ans);
 
         }
-
-        //static string Rle(string[] s)
-        //{
-        //    string Pac(s, int cnt)
-
-        //    {
-        //        if (cnt > 1)
-        //        {
-        //            return s + cnt.ToString();
-        //        }
-        //        return s;
-        //    }
-        //    string lastStym = s[0];
-        //    int lastPos = 0;
-
-        //    string[] ans = { };
-
-        //    for (int i = 0; i < s.Length; i++)
-        //    {
-        //        if (s[i] != lastStym)
-        //        {
-        //            ans.Append(Pac(lastStym, i - lastPos));
-        //            lastPos = i;
-        //            lastStym = s[i];
-        //        }
-        //    }
-        //    ans.Append(Pac(s[lastPos], s.Length - lastPos));
-
-        //    return String.Join(" ", ans);
+       
+        static string Rle(string s)
+        {
 
 
-        //}
+            //    Дана строка(возможно, пустая), состоящая из букв A-Z:
+            //AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBB
+            //BBBBBBBB
+            //Нужно написать функцию RLE, которая на выходе даст строку вида:
+            //    A4B3C2XYZD4E3F3A6B28.И сгенерирует ошибку, если на вход
+            //    пришла невалидная строка.
+            //Пояснения: Если символ встречается 1 раз, он остается без
+            //изменений; Если символ повторяется более 1 раза, к нему
+            //добавляется количество повторений.
+
+
+            char Pac(char c, int cnt)
+            {
+                if (cnt > 1)
+                {
+                    Console.WriteLine(cnt);
+
+                    return c ;
+                }
+                return c;
+            }
+
+            char lastStym = s[0];
+            int lastPos = 0;
+
+            List<char> ans = new List<char>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != lastStym)
+                {
+                    ans.Add(Pac(lastStym, i - lastPos));
+                    lastPos = i;
+                    lastStym = s[i];
+                }
+            }
+            ans.Add(Pac(s[lastPos], s.Length - lastPos));
+
+            return string.Join(" ", ans);
+
+
+        }
         static void Main(string[] args)
         {
             int[] arr = { 1, 4, 1, 2, 3 };
@@ -332,9 +326,9 @@ namespace Yandex_Lecture_2
 
 
 
-            string[] s = { "aa", "bbb", "ccc" };
+            //string[] s = { "aa", "bbb", "ccc" };
 
-            Console.WriteLine(Shorts(s));
+            //Console.WriteLine(Shorts(s));
 
 
             //Console.WriteLine(FindXLeft(arr, x));
@@ -345,6 +339,14 @@ namespace Yandex_Lecture_2
             //string[] words = { "a", "aa", "bb", "b", "c", "cc" };
 
             //Console.WriteLine(Shorts(words));
+
+            //string[] s = { "aaaaa", "bbb", "ccccc", "dddd", "cc" };
+
+            //Console.WriteLine(EasyPeasy(s));
+
+            string e = "aaaaaaabbbbbbbbbbbbcccccccc";
+
+            Console.WriteLine(Rle(e));
 
         }
     }
