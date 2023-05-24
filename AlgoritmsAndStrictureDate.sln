@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex_Lecture_2", "Yandex_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode_CSharp", "LeetCode_CSharp\LeetCode_CSharp.csproj", "{B6F1A690-C0D0-43CA-A057-6FC02CC60A72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex_Lecture_3", "Yandex_Lecture_3\Yandex_Lecture_3.csproj", "{2E45F7A3-B196-47B6-9731-7BFEE2D49080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B6F1A690-C0D0-43CA-A057-6FC02CC60A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6F1A690-C0D0-43CA-A057-6FC02CC60A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6F1A690-C0D0-43CA-A057-6FC02CC60A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E45F7A3-B196-47B6-9731-7BFEE2D49080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E45F7A3-B196-47B6-9731-7BFEE2D49080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E45F7A3-B196-47B6-9731-7BFEE2D49080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E45F7A3-B196-47B6-9731-7BFEE2D49080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
